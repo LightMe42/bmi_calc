@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
+import 'constants.dart';
 
-const bottomContainerHeight = 80.0;
-const activeCardColor = Color(0xFF1D1E33);
-const bottomButtonColor = Color(0xFFEB1555);
+enum GenderType { male, female, none }
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -15,6 +14,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  GenderType selectedGender = GenderType.none;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +29,14 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    color: activeCardColor,
+                    onTapFunction: () {
+                      setState(() {
+                        selectedGender = GenderType.male;
+                      });
+                    },
+                    color: selectedGender == GenderType.male
+                        ? activeCardColor
+                        : inactiveCardColor,
                     childCard: const IconContent(
                       icon: FontAwesomeIcons.mars,
                       buttonText: 'MALE',
@@ -37,7 +45,14 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    color: activeCardColor,
+                    onTapFunction: () {
+                      setState(() {
+                        selectedGender = GenderType.female;
+                      });
+                    },
+                    color: selectedGender == GenderType.female
+                        ? activeCardColor
+                        : inactiveCardColor,
                     childCard: const IconContent(
                       icon: FontAwesomeIcons.venus,
                       buttonText: 'FEMALE',
@@ -49,6 +64,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
               child: ReusableCard(
+            onTapFunction: () {},
             color: activeCardColor,
             childCard: Container(),
           )),
@@ -57,6 +73,7 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
+                    onTapFunction: () {},
                     color: activeCardColor,
                     childCard: Column(
                       children: const <Widget>[
@@ -78,6 +95,7 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: ReusableCard(
+                    onTapFunction: () {},
                     color: activeCardColor,
                     childCard: Column(
                       children: const <Widget>[
