@@ -35,8 +35,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     color: selectedGender == GenderType.male
-                        ? activeCardColor
-                        : inactiveCardColor,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     childCard: const IconContent(
                       icon: FontAwesomeIcons.mars,
                       buttonText: 'MALE',
@@ -51,8 +51,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     color: selectedGender == GenderType.female
-                        ? activeCardColor
-                        : inactiveCardColor,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     childCard: const IconContent(
                       icon: FontAwesomeIcons.venus,
                       buttonText: 'FEMALE',
@@ -65,7 +65,7 @@ class _InputPageState extends State<InputPage> {
           Expanded(
               child: ReusableCard(
             onTapFunction: () {},
-            color: activeCardColor,
+            color: kActiveCardColor,
             childCard: Container(),
           )),
           Expanded(
@@ -74,7 +74,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     onTapFunction: () {},
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                     childCard: Column(
                       children: const <Widget>[
                         Icon(
@@ -96,7 +96,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     onTapFunction: () {},
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                     childCard: Column(
                       children: const <Widget>[
                         Icon(
@@ -119,10 +119,10 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Container(
-            color: bottomButtonColor,
+            color: kBottomButtonColor,
             margin: const EdgeInsets.only(top: 10.0),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
           )
         ],
       ),
