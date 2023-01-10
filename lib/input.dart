@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
+import 'calculate_page.dart';
 
 enum GenderType { male, female, none }
 
@@ -18,6 +19,7 @@ class _InputPageState extends State<InputPage> {
   int height = 180;
   int weight = 60;
   int age = 18;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -202,11 +204,26 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kBottomButtonColor,
-            margin: const EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: kBottomContainerHeight,
+          GestureDetector(
+            onTap: () {
+              userHeight = height;
+              userWeight = weight;
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CalculatePage()));
+            },
+            child: Container(
+              child: Center(
+                child: Text(
+                  'CALCULATE',
+                  style: kLargeButtonTextStyle,
+                ),
+              ),
+              color: kBottomButtonColor,
+              margin: const EdgeInsets.only(top: 10.0),
+              padding: EdgeInsets.only(bottom: 20.0),
+              width: double.infinity,
+              height: kBottomContainerHeight,
+            ),
           )
         ],
       ),
