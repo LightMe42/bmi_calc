@@ -41,6 +41,7 @@ class CalculatePage extends StatelessWidget {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               flex: 1,
@@ -48,7 +49,10 @@ class CalculatePage extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Your Result',
-                  style: kBigFont,
+                  style: TextStyle(
+                    fontSize: 50.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -56,11 +60,11 @@ class CalculatePage extends StatelessWidget {
               flex: 5,
               child: Container(
                 color: kActiveCardColor,
-                width: double.infinity,
+                //width: double.infinity,
                 margin: EdgeInsets.only(left: 5.0, right: 5.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(
                       flex: 1,
@@ -76,7 +80,7 @@ class CalculatePage extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Container(
-                        alignment: Alignment.center,
+                        //alignment: Alignment.center,
                         child: Text(
                           countBMI(userHeight, userWeight).toString(),
                           style: TextStyle(
@@ -90,11 +94,14 @@ class CalculatePage extends StatelessWidget {
                       flex: 1,
                       child: Container(
                         alignment: Alignment.center,
-                        child: Text(resultText = indexMap[shortReview]!,
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w500,
-                            )),
+                        child: Text(
+                          resultText = indexMap[shortReview]!,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
                   ],
