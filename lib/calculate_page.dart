@@ -36,7 +36,7 @@ class CalculatePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Center(child: Text('BMI CALCULATOR')),
+          title: const Center(child: Text('BMI CALCULATOR')),
           backgroundColor: kBackgroundColor,
         ),
         body: Column(
@@ -47,7 +47,7 @@ class CalculatePage extends StatelessWidget {
               flex: 1,
               child: Container(
                 alignment: Alignment.centerLeft,
-                child: Text(
+                child: const Text(
                   'Your Result',
                   style: TextStyle(
                     fontSize: 50.0,
@@ -61,7 +61,7 @@ class CalculatePage extends StatelessWidget {
               child: Container(
                 color: kActiveCardColor,
                 //width: double.infinity,
-                margin: EdgeInsets.only(left: 5.0, right: 5.0),
+                margin: const EdgeInsets.only(left: 5.0, right: 5.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -79,14 +79,11 @@ class CalculatePage extends StatelessWidget {
                     ),
                     Expanded(
                       flex: 1,
-                      child: Container(
-                        //alignment: Alignment.center,
-                        child: Text(
-                          countBMI(userHeight, userWeight).toString(),
-                          style: TextStyle(
-                            fontSize: 90.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      child: Text(
+                        countBMI(userHeight, userWeight).toString(),
+                        style: const TextStyle(
+                          fontSize: 90.0,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
@@ -96,7 +93,7 @@ class CalculatePage extends StatelessWidget {
                         alignment: Alignment.center,
                         child: Text(
                           resultText = indexMap[shortReview]!,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20.0,
                             fontWeight: FontWeight.w500,
                           ),
@@ -113,17 +110,17 @@ class CalculatePage extends StatelessWidget {
                 Navigator.pop(context);
               },
               child: Container(
-                child: Center(
+                color: kBottomButtonColor,
+                margin: const EdgeInsets.only(top: 10.0),
+                padding: const EdgeInsets.only(bottom: 20.0),
+                width: double.infinity,
+                height: kBottomContainerHeight,
+                child: const Center(
                   child: Text(
                     'RECALCULATE',
                     style: kLargeButtonTextStyle,
                   ),
                 ),
-                color: kBottomButtonColor,
-                margin: const EdgeInsets.only(top: 10.0),
-                padding: EdgeInsets.only(bottom: 20.0),
-                width: double.infinity,
-                height: kBottomContainerHeight,
               ),
             )
           ],

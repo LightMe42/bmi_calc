@@ -4,6 +4,7 @@ import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
 import 'calculate_page.dart';
+import 'round_button.dart';
 
 enum GenderType { male, female, none }
 
@@ -25,7 +26,7 @@ class _InputPageState extends State<InputPage> {
     return Scaffold(
       appBar: AppBar(
           title: const Center(child: Text('BMI CALCULATOR')),
-          backgroundColor: const Color(0xFF0A0E21)),
+          backgroundColor: kBackAppBar),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -94,14 +95,14 @@ class _InputPageState extends State<InputPage> {
                   ),
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
-                      inactiveTrackColor: Color(0xFF8D8E98),
+                      inactiveTrackColor: const Color(0xFF8D8E98),
                       activeTrackColor: Colors.white,
-                      thumbColor: Color(0xFFEB1555),
-                      overlayColor: Color(0x29EB1555),
+                      thumbColor: const Color(0xFFEB1555),
+                      overlayColor: const Color(0x29EB1555),
                       thumbShape:
-                          RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                          const RoundSliderThumbShape(enabledThumbRadius: 15.0),
                       overlayShape:
-                          RoundSliderOverlayShape(overlayRadius: 30.0),
+                          const RoundSliderOverlayShape(overlayRadius: 30.0),
                     ),
                     child: Slider(
                       value: height.toDouble(),
@@ -128,7 +129,7 @@ class _InputPageState extends State<InputPage> {
                     childCard: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
+                        const Text(
                           'WEIGHT',
                           style: kLabelTexStyle,
                         ),
@@ -144,7 +145,7 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             RoundIconButton(
@@ -168,7 +169,7 @@ class _InputPageState extends State<InputPage> {
                     childCard: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
+                        const Text(
                           'AGE',
                           style: kLabelTexStyle,
                         ),
@@ -184,7 +185,7 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             RoundIconButton(
@@ -212,45 +213,21 @@ class _InputPageState extends State<InputPage> {
                   MaterialPageRoute(builder: (context) => CalculatePage()));
             },
             child: Container(
-              child: Center(
+              color: kBottomButtonColor,
+              margin: const EdgeInsets.only(top: 10.0),
+              padding: const EdgeInsets.only(bottom: 20.0),
+              width: double.infinity,
+              height: kBottomContainerHeight,
+              child: const Center(
                 child: Text(
                   'CALCULATE',
                   style: kLargeButtonTextStyle,
                 ),
               ),
-              color: kBottomButtonColor,
-              margin: const EdgeInsets.only(top: 10.0),
-              padding: EdgeInsets.only(bottom: 20.0),
-              width: double.infinity,
-              height: kBottomContainerHeight,
             ),
           )
         ],
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({required this.icon, required this.buttonFunction});
-
-  final IconData icon;
-  final Function buttonFunction;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: () {
-        buttonFunction();
-      },
-      elevation: 6.0,
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-      child: Icon(icon),
     );
   }
 }

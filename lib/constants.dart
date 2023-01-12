@@ -5,6 +5,8 @@ const kActiveCardColor = Color(0xFF1D1E33);
 const kInactiveCardColor = Color(0xFF111328);
 const kBottomButtonColor = Color(0xFFEB1555);
 const kBackgroundColor = Color(0xFF0A0E21);
+const kRoundButtonColor = Color(0xFF4C4F5E);
+const kBackAppBar = Color(0xFF0A0E21);
 const double kIconSize = 80.0;
 const double kSizedBoxHeight = 15.0;
 
